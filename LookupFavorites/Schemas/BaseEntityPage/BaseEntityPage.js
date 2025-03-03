@@ -59,7 +59,7 @@ define("BaseEntityPage", ["RightUtilities"], function (RightUtilities) {
 				}
 
 				return {
-					lookupPageName: "FavoritesLookupModule",
+					lookupPageName: isFavoritesLookup ? "FavoritesLookupModule" : "MultiLookupModule",
 					multiLookupConfig,
 				};
 			},
