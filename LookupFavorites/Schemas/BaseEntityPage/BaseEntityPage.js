@@ -36,6 +36,10 @@ define("BaseEntityPage", ["RightUtilities"], function (RightUtilities) {
 					const filters = this.Ext.create("Terrasoft.FilterGroup");
 					const subFilters = this.Ext.create("Terrasoft.FilterGroup");
 
+					if (multiLookupConfig[0].filters) {
+						filters.addItem(multiLookupConfig[0].filters);
+					}
+
 					subFilters.addItem(
 						Terrasoft.createColumnFilterWithParameter(
 							Terrasoft.ComparisonType.EQUAL,
@@ -59,7 +63,7 @@ define("BaseEntityPage", ["RightUtilities"], function (RightUtilities) {
 				}
 
 				return {
-					lookupPageName: isFavoritesLookup ? "FavoritesLookupModule" : "MultiLookupModule",
+					lookupPageName: "FavoritesLookupModule",
 					multiLookupConfig,
 				};
 			},
